@@ -19,6 +19,11 @@ int main() {
   clear_screen(s);
 
   //draw_line(0,0,500,500,s,c);
+  //draw_line(500,500,0,0,s,c);
+  draw_line(250,0,250,500,s,c);//vertical line
+  draw_line(0,250,500,250,s,c);//horizontal line
+  //draw_line();
+  //draw_line();
 
   display(s);
   save_extension(s, "lines.png");
