@@ -8,8 +8,11 @@
 //Insert your line algorithm here
 void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   int A, B, d, m;
+  //larger starting point
+  if (x0 > x1 && y0 > y1)
+    draw_line(x1,y1,x0,y0,s,c);
   //vertical line
-  if (x1 - x0 == 0){
+  else if (x1 - x0 == 0){
     while (y0 <= y1){
       plot(s,c,x0,y0);
       y0++;
@@ -41,7 +44,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
       }
     }
     //octant 2, m>1
-    if (m > 1){
+    else if (m > 1){
       d = A + 2*B;
       while (y0 <= y1){
 	plot(s,c,x0,y0);
@@ -54,7 +57,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
       }
     }
     //octant 7, m<-1
-    if (m < -1){
+    else if (m < -1){
       d = A - 2*B;
       while ( y0 >= y1){
 	plot(s,c,x0,y0);
@@ -67,7 +70,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
       }
     }
     //octant 8, -1<m<0
-    if (-1 < m && m < 0){
+    else if (-1 < m && m < 0){
       d = 2*A - B;
       while (x0 <= x1){
 	plot(s,c,x0,y0);
@@ -77,6 +80,22 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
 	}
 	x0++;
 	d+=2*A;
+      }
+    }
+    //m == 1
+    else if (m == 1){
+      while (x0 <= x1){
+	plot(s,c,x0,y0);
+	x0++;
+	y0++;
+      }
+    }
+    //m == -1
+    else if (m == -1){
+      while (x0 <= x1){
+	plot(s,c,x0,y0);
+	x0++;
+	y0--;
       }
     }
   }
