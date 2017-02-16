@@ -28,20 +28,40 @@ int main() {
   //MORE STUFF
   //top left
   int x,y;
-  for (x = 0, x < 250, x+=10){
-    y = 
+  for (x = 0; x < 250; x+=10){
+    y = 500 - x;
     draw_line(x,250,250,y,s,c);
   }
-  //draw_line(0,250,250,500,s,c);
+
+  c.red = MAX_COLOR;
+  c.green = MAX_COLOR;
+  c.blue = 0;
+  
   //bottom right
-  for (y = 250, y > 0, y-=10){
+  for (x = 500; x > 250; x-=10){
+    y = 500 - x;
     draw_line(250,y,x,250,s,c);
   }
-  //draw_line(250,0,500,250,s,c);
+
+  c.red = 0;
+  c.green = MAX_COLOR;
+  c.blue = MAX_COLOR;
+  
   //bottom left
-  draw_line(0,250,250,0,s,c);
+  for (x = 0; x < 250; x+=10){
+    y = x;
+    draw_line(x,250,250,y,s,c);
+  }
+
+  c.red = MAX_COLOR;
+  c.green = MAX_COLOR;
+  c.blue = MAX_COLOR;
+
   //top right
-  draw_line(250,500,500,250,s,c);
+  for (x = 500; x > 250; x-=10){
+    y = x;
+    draw_line(250,y,x,250,s,c);
+  }
 
   display(s);
   save_extension(s, "lines.png");

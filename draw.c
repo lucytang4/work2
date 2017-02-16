@@ -9,7 +9,7 @@
 void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   int A, B, d, m;
   //larger starting point
-  if (x0 > x1 && y0 > y1)
+  if (x0 > x1)
     draw_line(x1,y1,x0,y0,s,c);
   //vertical line
   else if (x1 - x0 == 0){
@@ -27,7 +27,7 @@ void draw_line(int x0, int y0, int x1, int y1, screen s, color c) {
   }
   else{
     m = (y1 - y0) / (x1 - x0);
-    printf("m = %d\n",m);
+    //printf("m = %d\n",m);
     A = y1 - y0;
     B = -(x0 - x1);
     //octant 1, 0<m<1
